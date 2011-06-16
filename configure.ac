@@ -1,0 +1,22 @@
+AC_PREREQ([2.67])
+AC_INIT([parallel_evolution-app], [0.1], [fr.teodoro@gmail.com])
+AM_INIT_AUTOMAKE([foreign -Wall -Werror])
+AC_LANG(C)
+
+# Checks for programs.
+AC_PROG_CC
+
+# Checks for libraries.
+AC_CHECK_LIB(parallel_evolution,parallel_evolution_run,,AC_MSG_ERROR([libparallel_evlution.a not found]))
+AC_CHECK_LIB(random_search,random_search_run_iterations,,AC_MSG_ERROR([librandom_search.a not found]))
+
+# Checks for header files.
+AC_CHECK_HEADER(parallel_evolution.h,,AC_MSG_ERROR([parallel_evlution.h not found]))
+AC_CHECK_HEADER(random_search.h,,AC_MSG_ERROR([random_search.h not found]))
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
