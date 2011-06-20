@@ -1,6 +1,13 @@
 #include <parallel_evolution.h>
 #include <random_search.h>
 
+double fitness_func(double *x)
+{
+	return 0.0;
+}
+
+double (*random_search_fitness_func)(double*) = fitness_func;
+
 int main(int argc, char *argv[])
 {
 	algorithm_t *random_search_algorithm;

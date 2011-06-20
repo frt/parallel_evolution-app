@@ -5,14 +5,18 @@ AC_LANG(C)
 
 # Checks for programs.
 AC_PROG_CC
+AC_CHECK_PROGS([MPICC], [mpicc], [:])
+if test "$MPICC" = :; then
+	AC_MSG_ERROR([This package needs mpicc.])
+fi
 
 # Checks for libraries.
-AC_CHECK_LIB(parallel_evolution,parallel_evolution_run,,AC_MSG_ERROR([libparallel_evolution.a not found]))
-AC_CHECK_LIB(random_search,random_search_run_iterations,,AC_MSG_ERROR([librandom_search.a not found]))
+#AC_CHECK_LIB(parallel_evolution,parallel_evolution_run,,AC_MSG_ERROR([libparallel_evolution.a not found]))
+#AC_CHECK_LIB(random_search,random_search_run_iterations,,AC_MSG_ERROR([librandom_search.a not found]))
 
 # Checks for header files.
-AC_CHECK_HEADER(parallel_evolution.h,,AC_MSG_ERROR([parallel_evolution.h not found]))
-AC_CHECK_HEADER(random_search.h,,AC_MSG_ERROR([random_search.h not found]))
+#AC_CHECK_HEADER(parallel_evolution.h,,AC_MSG_ERROR([parallel_evolution.h not found]))
+#AC_CHECK_HEADER(random_search.h,,AC_MSG_ERROR([random_search.h not found]))
 
 # Checks for typedefs, structures, and compiler characteristics.
 
