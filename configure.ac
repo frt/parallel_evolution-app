@@ -1,4 +1,4 @@
-AC_PREREQ([2.67])
+AC_PREREQ([2.65])
 AC_INIT([parallel_evolution-app], [0.1], [fr.teodoro@gmail.com])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_LANG(C)
