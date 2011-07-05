@@ -1,12 +1,10 @@
 #include <parallel_evolution.h>
 #include <random_search.h>
 
-double fitness_func(double *x)
-{
-	return 0.0;
-}
+extern double (*parallel_evolution_fitness_func)(double*);           /* função de fitness (minimização) */
 
-double (*random_search_fitness_func)(double*) = fitness_func;
+/* assign the same fitness function to all supported algorithms */
+double (*random_search_fitness_func)(double*) = parallel_evolution_fitness_func;
 
 int main(int argc, char *argv[])
 {
