@@ -3,13 +3,13 @@
 
 extern double (*parallel_evolution_fitness_func)(double*);           /* função de fitness (minimização) */
 
-/* assign the same fitness function to all supported algorithms */
-double (*random_search_fitness_func)(double*) = parallel_evolution_fitness_func;
-
 int main(int argc, char *argv[])
 {
 	algorithm_t *random_search_algorithm;
 	int ret;
+
+	/* assign the same fitness function to all supported algorithms */
+	random_search_fitness_func = parallel_evolution_fitness_func;
 
 	parallel_evolution_set_number_of_dimensions(50);
 	parallel_evolution_set_topology_file_name("ring.topology");
