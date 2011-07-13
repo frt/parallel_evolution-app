@@ -1,4 +1,3 @@
-/* FIXME file parsing code should go to app code */
 #include "parallel_evolution/topology_parser.h"
 #include <stdio.h>
 
