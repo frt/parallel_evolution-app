@@ -7,12 +7,13 @@ int main(int argc, char *argv[])
 {
 	algorithm_t *random_search_algorithm;
 	int ret;
+	topology_t *topology;	/* TODO parse and create the topology */
 
 	/* assign the same fitness function to all supported algorithms */
 	random_search_fitness_func = parallel_evolution_fitness_func;
 
 	parallel_evolution_set_number_of_dimensions(50);
-	parallel_evolution_set_topology_file_name("ring.topology");
+	parallel_evolution_set_topology(0);
 	algorithm_create(&random_search_algorithm,
 			random_search_init,
 			random_search_run_iterations,

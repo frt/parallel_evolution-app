@@ -1,4 +1,4 @@
-#include "parallel_evolution/topology_parser.h"
+#include "topology_parser.h"
 #include <stdio.h>
 
 status_t parse_a_line(topology_t *topology, FILE *fp)

@@ -5,6 +5,8 @@ AC_LANG(C)
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_RANLIB
+AC_PROG_MAKE_SET
 AC_CHECK_PROGS([MPICC], [mpicc], [:])
 if test "$MPICC" = :; then
 	AC_MSG_ERROR([This package needs mpicc.])
@@ -22,5 +24,8 @@ fi
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([
+		 Makefile 
+		 src/Makefile
+		 src/topology_parser/Makefile])
 AC_OUTPUT
