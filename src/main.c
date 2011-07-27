@@ -43,7 +43,10 @@ int main(int argc, char *argv[])
 			);
 	parallel_evolution_create_processes(3);
 	parallel_evolution_add_algorithm(random_search_algorithm, 1, 3);
+	parallel_evolution_set_migration_interval(100);
+
 	ret = parallel_evolution_run(&argc, &argv);
+	
 	algorithm_destroy(&random_search_algorithm);
 	topology_destroy(&topology);
 	
