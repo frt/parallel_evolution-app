@@ -5,6 +5,8 @@
 #define ERROR_TOPOLOGY_CREATE 1
 #define ERROR_TOPOLOGY_PARSE 2
 
+#define MODULE_APP "app"
+
 extern double (*parallel_evolution_fitness_func)(double*);           /* função de fitness (minimização) */
 
 /* TODO get config filename from argv and parse it */
@@ -19,14 +21,14 @@ int main(int argc, char *argv[])
 
 	/* create the topology */
 	if (topology_create(&topology) != SUCCESS) {
-		parallel_evolution_log(SEVERITY_ERROR, MODULE_PARALLEL_EVOLUTION, "Topology could not be created. Quit."); /* FIXME create a MODULE_APP */
+		parallel_evolution_log(SEVERITY_ERROR, MODULE_APP, "Topology could not be created. Quit.");
 		return ERROR_TOPOLOGY_CREATE;
 	}
 
 	/* parse topology from file */
 	if (topology_parser_parse(topology, "ring.topology") != SUCCESS) {	/* TODO get topology filename from config file */
 		topology_destroy(&topology);
-		parallel_evolution_log(SEVERITY_ERROR, MODULE_PARALLEL_EVOLUTION, "Topology could not be parsed. This is the end..."); /* FIXME create a MODULE_APP */
+		parallel_evolution_log(SEVERITY_ERROR, MODULE_APP, "Topology could not be parsed. This is the end...");
 		return ERROR_TOPOLOGY_PARSE;
 	}
 
