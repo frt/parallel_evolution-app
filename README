@@ -1,0 +1,19 @@
+Parallel Evolution Library Example Application
+
+Application to exemplify the use of the parallel_evolution-lib
+[http://github.com/frt/parallel_evolution-lib].
+
+
+HOWTO INSTALL THIS LIB FROM THE SOURCES 
+
+ * Generate the './configure' script:
+
+	$ aclocal
+	$ automake --add-missing
+	$ autoconf
+
+ * Configure and install:
+
+	$ ./configure
+	$ make
+	# make install
