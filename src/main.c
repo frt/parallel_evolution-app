@@ -1,5 +1,7 @@
 #include <parallel_evolution.h>
 #include <random_search.h>
+#include <stddef.h>
+
 #include "topology_parser/topology_parser.h"
 
 #define ERROR_TOPOLOGY_CREATE 1
@@ -41,7 +43,8 @@ int main(int argc, char *argv[])
 			random_search_insert_migrant,
 			random_search_pick_migrant,
 			random_search_ended,
-			random_search_get_population
+			random_search_get_population,
+			NULL	/* FIXME parallel_evolution-lib is not using it, so its ok to pass NULL here. */
 			);
 	parallel_evolution_create_processes(3);
 	parallel_evolution_add_algorithm(random_search_algorithm, 1, 3);
