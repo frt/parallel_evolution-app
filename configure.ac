@@ -3,6 +3,8 @@ AC_INIT([parallel_evolution-app], [0.1], [fr.teodoro@gmail.com])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_LANG(C)
 
+m4_ifdef([AM_PROG_AR], [AM_PROG_AR])
+
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_RANLIB
