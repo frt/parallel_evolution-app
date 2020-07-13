@@ -17,6 +17,13 @@ int main(int argc, char *argv[])
 	algorithm_t *random_search_algorithm;
 	int ret;
 	topology_t *topology;
+    char *topology_file;
+    char topology_file_default[] = "ring.topology";
+
+    if (argc == 2)  // program name + args count
+        topology_file = argv[1];
+    else
+        topology_file = topology_file_default;
 
 	/* assign the same fitness function to all supported algorithms */
 	random_search_fitness_func = parallel_evolution_fitness_func;
@@ -28,7 +35,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* parse topology from file */
-	if (topology_parser_parse(topology, "ring.topology") != SUCCESS) {	/* TODO get topology filename from config file */
+	if (topology_parser_parse(topology, topology_file) != SUCCESS) {
 		topology_destroy(&topology);
 		parallel_evolution_log(SEVERITY_ERROR, MODULE_APP, "Topology could not be parsed. This is the end...");
 		return ERROR_TOPOLOGY_PARSE;
