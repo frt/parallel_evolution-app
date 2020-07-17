@@ -11,7 +11,6 @@
 
 extern double (*parallel_evolution_fitness_func)(double*);           /* função de fitness (minimização) */
 
-/* TODO get config filename from argv and parse it */
 int main(int argc, char *argv[])
 {
 	algorithm_t *random_search_algorithm;
@@ -25,7 +24,6 @@ int main(int argc, char *argv[])
     else
         topology_file = topology_file_default;
 
-	/* assign the same fitness function to all supported algorithms */
 	random_search_fitness_func = parallel_evolution_fitness_func;
 
 	/* create the topology */
@@ -53,8 +51,7 @@ int main(int argc, char *argv[])
 			random_search_get_population,
 			NULL	/* FIXME parallel_evolution-lib is not using it, so its ok to pass NULL here. */
 			);
-	parallel_evolution_create_processes(3);
-	parallel_evolution_add_algorithm(random_search_algorithm, 1, 3);
+	parallel_evolution_set_algorithm(random_search_algorithm);
 	parallel_evolution_set_migration_interval(100);
 
 	ret = parallel_evolution_run(&argc, &argv);
