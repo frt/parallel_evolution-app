@@ -28,14 +28,14 @@ int main(int argc, char *argv[])
 
 	/* create the topology */
 	if (topology_create(&topology) != SUCCESS) {
-		parallel_evolution_log(SEVERITY_ERROR, MODULE_APP, "Topology could not be created. Quit.");
+		parallel_evolution_log(LOG_PRIORITY_ERR, MODULE_APP, "Topology could not be created. Quit.");
 		return ERROR_TOPOLOGY_CREATE;
 	}
 
 	/* parse topology from file */
 	if (topology_parser_parse(topology, topology_file) != SUCCESS) {
 		topology_destroy(&topology);
-		parallel_evolution_log(SEVERITY_ERROR, MODULE_APP, "Topology could not be parsed. This is the end...");
+		parallel_evolution_log(LOG_PRIORITY_ERR, MODULE_APP, "Topology could not be parsed. This is the end...");
 		return ERROR_TOPOLOGY_PARSE;
 	}
 
@@ -49,8 +49,7 @@ int main(int argc, char *argv[])
 			random_search_pick_migrant,
 			random_search_ended,
 			random_search_get_population,
-			NULL	/* FIXME parallel_evolution-lib is not using it, so its ok to pass NULL here. */
-			);
+			random_search_get_stats);
 	parallel_evolution_set_algorithm(random_search_algorithm);
 	parallel_evolution_set_migration_interval(100);
 
