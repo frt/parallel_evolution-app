@@ -14,4 +14,4 @@ install-sh
 missing
 *.log
 *.results
-src/parallel_evolution-app
+src/random_search-app

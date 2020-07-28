@@ -17,6 +17,5 @@ HOWTO INSTALL THIS LIB FROM THE SOURCES
 	$ ./configure
 	$ make
 	# make install
-        $ mpirun -n 4 src/parallel_evolution-app   # to run the test application
+    $ mpirun -n 4 src/random_search-app   # to run the application
 
-If you want to buy me a coffee follow this link: https://ko-fi.com/M4M09AL6
