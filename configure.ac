@@ -28,6 +28,5 @@ fi
 
 AC_CONFIG_FILES([
 		 Makefile 
-		 src/Makefile
-		 src/topology_parser/Makefile])
+		 src/Makefile])
 AC_OUTPUT
