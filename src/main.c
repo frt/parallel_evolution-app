@@ -2,14 +2,9 @@
 #include <random_search.h>
 #include <stddef.h>
 
-#include "topology_parser/topology_parser.h"
-
-#define ERROR_TOPOLOGY_CREATE 1
-#define ERROR_TOPOLOGY_PARSE 2
-
 #define MODULE_APP "app"
 
-extern double (*parallel_evolution_fitness_func)(double*);           /* função de fitness (minimização) */
+extern double (*parallel_evolution_fitness_func)(const double *x, int n);           /* função de fitness (minimização) */
 
 int main(int argc, char *argv[])
 {
